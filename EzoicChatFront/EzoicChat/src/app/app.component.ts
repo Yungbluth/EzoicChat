@@ -24,19 +24,19 @@ export class AppComponent {
   connect(){
     (document.getElementById("con") as HTMLButtonElement).disabled = true;
     (document.getElementById("dis") as HTMLButtonElement).disabled = false;
-    this.webSocketAPI._connect();
+    this.webSocketAPI.connectServer();
   }
 
   //Disconnects to the server
   disconnect(){
     (document.getElementById("con") as HTMLButtonElement).disabled = false;
     (document.getElementById("dis") as HTMLButtonElement).disabled = true;
-    this.webSocketAPI._disconnect();
+    this.webSocketAPI.disconnectServer();
   }
 
   //Sends a message to the server, includes the name of the sender
   sendMessage(){
-    this.webSocketAPI._send(this.name + ":" + this.message);
+    this.webSocketAPI.sendMsg(this.name + ":" + this.message);
   }
 
   //Receives messages from the server and displays it to the html
