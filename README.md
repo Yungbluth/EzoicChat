@@ -1,5 +1,5 @@
 # EzoicChat
-Created By: Matthew yungbluth
+Created By: Matthew Yungbluth
 
 Chat Program for Ezoic Interview
 
