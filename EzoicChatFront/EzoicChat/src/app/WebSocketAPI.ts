@@ -12,7 +12,7 @@ export class WebSocketAPI {
     }
 
     //Connects to the server
-    _connect() {
+    connectServer() {
         console.log("Initialize WebSocket Connection");
         let ws = new SockJS(this.webSocketEndPoint);
         this.stompClient = Stomp.over(ws);
@@ -29,12 +29,12 @@ export class WebSocketAPI {
     errorCallBack(error) {
         console.log("Error -> " + error)
         setTimeout(() => {
-            this._connect();
+            this.connectServer();
         }, 10000);
     }
 
     //Disconnects from the server
-    _disconnect() {
+    disconnectServer() {
         if (this.stompClient !== null) {
             this.stompClient.disconnect();
         }
@@ -48,7 +48,7 @@ export class WebSocketAPI {
     }
 
     //Sends a message to the server
-    _send(message) {
+    sendMsg(message) {
         console.log("Sending message to server");
         this.stompClient.send("/app/chat", {}, JSON.stringify(message));
     }
